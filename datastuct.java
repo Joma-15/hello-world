@@ -1,0 +1,61 @@
+//seat reservation in java
+//the user should have the option to choose a seat between seat one and the number 
+//the row and column should be 10x10
+//the user should also have an option to cancel the seat 
+//the table should be display everytime the user make a changes 
+//it should have class for managing the seats and the main class for the main page 
+import java.util.Scanner;
+
+class Seats{
+    static String[][] flightSeat = new String[10][10]; //four row 10 column 
+    Scanner scanner = new Scanner(System.in);
+
+    //the current value of the seat is 0
+    void currentSeat(){
+        for (int i = 0; i < flightSeat.length; i++) {
+            for (int j = 0; j < flightSeat[i].length; j++) {
+                flightSeat[i][j] = "0"; 
+            }
+        }
+    }
+
+    // this is for displaying the current seat available 
+    void displaySeat(){
+        System.out.println("Current Seat Available");
+        // traverse to each row 
+        for (int i = 0; i < flightSeat.length; i++) {
+            System.out.print("| " + "Seat" + (i+1) + " |");
+            if ((i+1)==9) {break;}//ginawa ko to kasi hindi ko mapantay yung 10
+        }
+        System.out.print("| " + "Seat" + 10 + "|");//napantay ko na binawasan ko ng space
+
+        //traversing to each column
+        for (int i = 0; i < flightSeat.length; i++) {
+            System.out.println();
+            for (int j = 0; j < flightSeat[i].length; j++) {
+                System.out.print("|   " + flightSeat[i][j] + "   |");
+            }    
+        }
+    }
+
+    // void displaySeat(){
+    //     System.out.println("Current Seat available");
+    //     String currentSeat = "| " + "Seat" + " |";
+
+    //     //traverse to each row 
+    //     for (int i = 0; i < flightSeat.length; i++) {
+    //         currentSeat = currentSeat.substring(0,6).concat(Integer.toString(i+1).substring(currentSeat.length()));
+    //         System.out.println(currentSeat.substring(6).concat(Integer.toString(i+1)));
+    //     }
+    // }
+}
+
+public class datastuct {
+
+    public static void main(String[] args) {
+        Seats s = new Seats();
+        s.currentSeat();
+        s.displaySeat();
+    }
+}
+
