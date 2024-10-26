@@ -1,6 +1,7 @@
-import PromptSync from 'prompt-sync'; 
+const userdata = {
+    username: 'jhon marcel adelantar', 
+    password: 'uzumaki@15'
+}
 
-//creating an instance of the prompt sync  
-const prompt = PromptSync(); 
-
-prompt("Can you please enter your name : ");
+//extracting the userdata
+console.log()

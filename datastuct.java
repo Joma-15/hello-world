@@ -19,35 +19,53 @@ class Seats{
         }
     }
 
-    // this is for displaying the current seat available 
-    void displaySeat(){
-        System.out.println("Current Seat Available");
-        // traverse to each row 
-        for (int i = 0; i < flightSeat.length; i++) {
-            System.out.print("| " + "Seat" + (i+1) + " |");
-            if ((i+1)==9) {break;}//ginawa ko to kasi hindi ko mapantay yung 10
-        }
-        System.out.print("| " + "Seat" + 10 + "|");//napantay ko na binawasan ko ng space
-
-        //traversing to each column
-        for (int i = 0; i < flightSeat.length; i++) {
-            System.out.println();
-            for (int j = 0; j < flightSeat[i].length; j++) {
-                System.out.print("|   " + flightSeat[i][j] + "   |");
-            }    
-        }
-    }
-
+    // // this is for displaying the current seat available 
     // void displaySeat(){
-    //     System.out.println("Current Seat available");
-    //     String currentSeat = "| " + "Seat" + " |";
-
-    //     //traverse to each row 
+    //     System.out.println("Current Seat Available");
+    //     // traverse to each row 
     //     for (int i = 0; i < flightSeat.length; i++) {
-    //         currentSeat = currentSeat.substring(0,6).concat(Integer.toString(i+1).substring(currentSeat.length()));
-    //         System.out.println(currentSeat.substring(6).concat(Integer.toString(i+1)));
+    //         System.out.print("| " + "Seat" + (i+1) + " |");
+    //         if ((i+1)==9) {break;}//ginawa ko to kasi hindi ko mapantay yung 10
+    //     }
+    //     System.out.print("| " + "Seat" + 10 + "|");//napantay ko na binawasan ko ng space
+
+    //     //traversing to each column
+    //     for (int i = 0; i < flightSeat.length; i++) {
+    //         System.out.println();
+    //         for (int j = 0; j < flightSeat[i].length; j++) {
+    //             System.out.print("|   " + flightSeat[i][j] + "   |");
+    //         }    
     //     }
     // }
+
+//     void displaySeat(){
+//         System.out.println("Current Seat available");
+//         String currentSeat = "| " + "Seat" + " |";
+
+//         //traverse to each row 
+//         for (int i = 0; i < flightSeat.length; i++) {
+//             currentSeat = currentSeat.substring(0,6).concat(Integer.toString(i+1) + currentSeat.substring(currentSeat.length()-1));
+//     }
+// }
+
+// Display the current seats available in a clean table format
+void displaySeat() {
+    System.out.println("Current Seat Available");
+
+    // Print seat header row with alignment
+    for (int i = 0; i < flightSeat[0].length; i++) {
+        System.out.printf("| Seat%-3d |", i + 1);  // %-3d for better alignment
+    }
+    System.out.println();  // Move to the next line after header
+
+    // Traverse and print each row with formatted columns
+    for (int i = 0; i < flightSeat.length; i++) {
+        for (int j = 0; j < flightSeat[i].length; j++) {
+            System.out.printf("|   %-3s   |", flightSeat[i][j]);  // %-3s aligns seat content
+        }
+        System.out.println();  // Move to the next row
+    }
+}
 }
 
 public class datastuct {
