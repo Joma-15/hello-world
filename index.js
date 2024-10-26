@@ -1,4 +1,6 @@
-import PromptSycn from 'prompt-sync';
+import PromptSync from 'prompt-sync'; 
 
-const prompt = PromptSycn();
-prompt('Enter your name here : ')
+//creating an instance of the prompt sync  
+const prompt = PromptSync(); 
+
+prompt("Can you please enter your name : ");
