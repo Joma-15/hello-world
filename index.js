@@ -36,4 +36,4 @@ const istrue = (10 > 5) ? true:false;
 let getUserdata = (username, password) => `hello my name is ${username} and my password is ${password}`; 
 
 console.log(value + "\n" + istrue); 
-console.log(getUserdata);
+console.log(getUserdata("jhon Marcel adelantar", "uzumaki@15"));
