@@ -6,29 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <label for="value">Please enter your username here : </label><br>
-    <input type="text" name="value" id="input"><br>
-    <button onclick="error()">click me</button>
     <p id="demo"></p>
-    <p id="haha"></p>
     <script>
-        function error(){
-            let p = document.getElementById("demo");
-            p.innerHTML = "";
-            let v = document.getElementById("input").value;
-            try{
-                //the trim funtion is to ensure that there is no trailine white space in the value 
-                if(v.trim() == "")throw "please add value";
-                if(isNaN(v)) throw "not a number"; 
-                v = Number(v); //casting it into a number 
-                if(v < 5) throw "to low"; 
-                if(v > 10)throw "to high";
-            }catch(err){
-                p.innerHTML = "input is " + err;
-            }finally{
-                document.getElementById("haha").innerHTML = "hello world"; 
-            }
-        }
+        //now using the strict method for the cleaner implementaion of the code
+        "use strict";
+        //initializing a value 
+        x = 4; //this will not cause an error 
+        document.getElementById("demo").innerHTML = x;
     </script>
 </body>
 </html>
