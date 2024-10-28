@@ -4,6 +4,7 @@
 //the user should also have an option to cancel the seat 
 //the table should be display everytime the user make a changes 
 //it should have class for managing the seats and the main class for the main page 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class Seats{
@@ -19,9 +20,24 @@ class Seats{
         }
     }
 
+    void displaySeat(){
+        System.out.println("\nCurrent Seat Available");
+
+        for (int i = 0; i < flightSeat.length; i++) {
+            System.out.printf("|   Seat%-3d |", i+1);
+        }
+
+        for (int i = 0; i < flightSeat.length; i++) {
+            System.out.println();
+            for (int j = 0; j < flightSeat[i].length; j++) {
+                System.out.printf("|     %-3s   |", flightSeat[i][j]);
+            }
+        }
+    }
+
     // // this is for displaying the current seat available 
-    // void displaySeat(){
-    //     System.out.println("Current Seat Available");
+    // static void displaySeat(){
+    //     System.out.println("\nCurrent Seat Available");
     //     // traverse to each row 
     //     for (int i = 0; i < flightSeat.length; i++) {
     //         System.out.print("| " + "Seat" + (i+1) + " |");
@@ -49,31 +65,45 @@ class Seats{
 // }
 
 // Display the current seats available in a clean table format
-void displaySeat() {
-    System.out.println("Current Seat Available");
+// static void displaySeat() {
+//     System.out.println("Current Seat Available");
 
-    // Print seat header row with alignment
-    for (int i = 0; i < flightSeat[0].length; i++) {
-        System.out.printf("| Seat%-3d |", i + 1);  // %-3d for better alignment
-    }
-    System.out.println();  // Move to the next line after header
+//     // Print seat header row with alignment
+//     for (int i = 0; i < flightSeat[0].length; i++) {
+//         System.out.printf("| Seat%-3d |", i + 1);  // %-3d for better alignment
+//     }
+//     System.out.println();  // Move to the next line after header
 
-    // Traverse and print each row with formatted columns
-    for (int i = 0; i < flightSeat.length; i++) {
-        for (int j = 0; j < flightSeat[i].length; j++) {
-            System.out.printf("|   %-3s   |", flightSeat[i][j]);  // %-3s aligns seat content
-        }
-        System.out.println();  // Move to the next row
-    }
-}
+//     // Traverse and print each row with formatted columns
+//     for (int i = 0; i < flightSeat.length; i++) {
+//         for (int j = 0; j < flightSeat[i].length; j++) {
+//             System.out.printf("|   %-3s   |", flightSeat[i][j]);  // %-3s aligns seat content
+//         }
+//         System.out.println();  // Move to the next row
+//     }
+// }
 }
 
 public class datastuct {
-
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         Seats s = new Seats();
-        s.currentSeat();
-        s.displaySeat();
+        s.currentSeat();//this will set all the vacant seat available to 0
+      while(true){
+        System.out.println("-----Main Flight-------");
+        System.out.println("1.Reserve seat\n2.Cancel Flight\n3.Sea list of available flight");
+        System.out.print("Choose: ");
+        try {
+            int choose = scanner.nextInt();
+            scanner.nextLine();
+
+            if (choose==1)s.displaySeat();break;
+
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            System.out.println("Invalid input try again!\n");
+        }
+      }
     }
 }
 
