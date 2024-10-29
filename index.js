@@ -1,8 +1,10 @@
-function Person(first, last, age){
-    this.first = first;
-    this.last = last;
-    this.age = age;
-}
-Person.prototype.gender = "male"; 
-const p = new Person("Marcel", "adelantar", 19);
-console.log(p.gender)
+//in javascript we can nest a fuckin function 
+const sayHello =(function () {
+    let text = ""; 
+    return function () {
+        text += "hello world"; 
+        return text;
+    }
+})();
+
+console.log(sayHello());
