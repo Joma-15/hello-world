@@ -1,4 +1,4 @@
-//creating a sequence of number 
+//creating a sequence of numberr
 const primeNumbers = [1,2,3,4,5,6,7,8,9,10];
 //hoisting method
 //pass the even number the array of numbers and the arrow function that will filter all the even numbers 
