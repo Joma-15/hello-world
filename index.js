@@ -1,37 +1,27 @@
-// //concept of inheritance in javascriipt
-// class Parent{
-//     constructor(){
-//         //it cannot be accessed because it is defined as a local variable
-//         //it should be define as a this to treat it as a property
-//         const name = "hello world";
-//         this.usename = "hi world";
-//     }
-// }
-// class Child extends Parent{
-//     constructor(){
-//         super();
-//     }
-// }
-// const anak = new Child();
-// console.log(anak.name);
-// console.log(anak.usename)
+//creating a sequence of number 
+const primeNumbers = [1,2,3,4,5,6,7,8,9,10];
+//hoisting method
+//pass the even number the array of numbers and the arrow function that will filter all the even numbers 
+const evenNumber = removeEven(primeNumbers, (x) => x%2 == 0);
 
-//getters and setters in javascript 
-class UserData{
-    constructor(username,password){
-        this.username = username;
-        this.password = password;
+/*creating the actual function removeEven and using the callback method
+to execute my other arrow function after the execution of the removeEven
+it means that the first function remove even will traverse to all the element 
+in the array first before filtering the even number using the arrow function that 
+we pass as parameter value */
+
+//this will take two parameter value the array and the arrow function 
+function removeEven(primeNumbers, callback){
+    //Initializing a container to store the even numbers 
+    const container = []; 
+    //traversing to all the element in the primeNumbers
+    for(const x of primeNumbers){
+        //calling out the arrow function to filter the even numbers 
+        if(callback(x)){//pass the x which is the traverse element
+            //storing all the even values to the container 
+            container.push(x);
+        }
     }
-    //getters 
-    get usename(){
-        return this.username;
-    }
-    //setters 
-    set usename(x){
-        this.username = x;
-    }
+    return container;//returning the filtered array
 }
-//crfeating an instance of the object 
-const user = new UserData("Marcel","uzumaki@15");
-user.usename = "hello world"; 
-console.log(user.usename);
+console.log(evenNumber);
