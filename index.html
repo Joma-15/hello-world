@@ -6,14 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <div id="shower"></div>
+    <h1 id="container">this is a fuckin h1</h1>
+    <button onclick="loadDoc()">click me</button>
+
     <script>
-        const selector = document.querySelectorAll("p");
+        function loadDoc(){
+            const xhttp = new XMLHttpRequest(); 
+            xhttp.onload = function(){
+                document.getElementById("container").innerHTML = this.responseText;
+            }
+            xhttp.open("GET","hello world.txt", true);
+            xhttp.send();
+        }
     </script>
 </body>
 </html>
