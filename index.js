@@ -1,12 +1,13 @@
-//Create an XLMHttpRequest object 
-const xhttp = new XMLHttpRequest();
+import fetch from "node-fetch";
 
-//Define a callback function 
-xhttp.onload() = function(){
-    //in this section of code i can used the data
-    this.responseText;
+async function requestData() {
+    try{
+        const response = await fetch("hello world.txt");
+        if(!response.ok) throw new Error("Network response was not ok");
+        const text = await response.text();
+        console.log(text);
+    }catch(error){
+        console.log(error)
+    }
 }
-
-//to send a request 
-xhttp.open('GET', "ajax_info.txt"); 
-xhttp.send();
+requestData();
