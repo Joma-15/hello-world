@@ -49,6 +49,7 @@ class Seats{
 //     }
 // }
 
+
 // Display the current seats available in a clean table format
 void displaySeat() {
     System.out.println("Current Seat Available");
@@ -70,24 +71,54 @@ void displaySeat() {
   }
 
   //method for reserving the seat 
+//   void reserveSeat(){
+//    boolean isinRange = false;
+//    while(!isinRange){
+//     int row, column;
+//     try {
+//         System.out.print("rows : ");
+//         row = scanner.nextInt();
+//         System.out.print("column : ");
+//         column = scanner.nextInt();
+
+//         isinRange = changeSeat(row, column);
+
+//     } catch (Exception e) {
+//     }
+//    }
+//   }
+
   void reserveSeat(){
-    int row, column;
-    try {
-        System.out.print("rows : ");
-        row = scanner.nextInt();
-        System.out.print("column : ");
-        column = scanner.nextInt();
+    boolean isinRange = false;
+    displaySeat();
 
-        changeSeat(row, column);
+    while (!isinRange) {
+        try {
+            int row, column;
 
-    } catch (Exception e) {
+            System.out.print("row : ");
+            row = scanner.nextInt();
+            System.out.print("Seat : ");
+            column = scanner.nextInt();
+
+            isinRange = changeSeat(row, column);
+        
+        } catch (InputMismatchException e){
+            System.out.println("Invalid input try again!");
+        }
     }
   }
-  void changeSeat(int row, int column){
-    flightSeat[row-1][column-1] = "X";
-    displaySeat();
+
+
+  boolean changeSeat(int row, int column){
+        if(row <= 10 && column <= 10){
+            flightSeat[row-1][column -1] = "X";
+            displaySeat();
+            return true;
+        }else return false;
+    }
   }
-}
+
 
 public class datastuct {
 
@@ -104,7 +135,6 @@ public class datastuct {
 
                 switch (choice) {
                     case 1:
-                      s.displaySeat();
                       s.reserveSeat();
                         return;
                     default:
