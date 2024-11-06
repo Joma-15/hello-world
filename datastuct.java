@@ -4,6 +4,7 @@
 //the user should also have an option to cancel the seat 
 //the table should be display everytime the user make a changes 
 //it should have class for managing the seats and the main class for the main page 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class Seats{
@@ -11,13 +12,13 @@ class Seats{
     Scanner scanner = new Scanner(System.in);
 
     //the current value of the seat is 0
-    void currentSeat(){
-        for (int i = 0; i < flightSeat.length; i++) {
-            for (int j = 0; j < flightSeat[i].length; j++) {
-                flightSeat[i][j] = "0"; 
-            }
-        }
-    }
+    // void currentSeat(){
+    //     for (int i = 0; i < flightSeat.length; i++) {
+    //         for (int j = 0; j < flightSeat[i].length; j++) {
+    //             flightSeat[i][j] = "0"; 
+    //         }
+    //     }
+    // }
 
     // // this is for displaying the current seat available 
     // void displaySeat(){
@@ -61,19 +62,59 @@ void displaySeat() {
     // Traverse and print each row with formatted columns
     for (int i = 0; i < flightSeat.length; i++) {
         for (int j = 0; j < flightSeat[i].length; j++) {
+            if(flightSeat[i][j] == null) flightSeat[i][j] = "0";
             System.out.printf("|   %-3s   |", flightSeat[i][j]);  // %-3s aligns seat content
         }
         System.out.println();  // Move to the next row
     }
-}
+  }
+
+  //method for reserving the seat 
+  void reserveSeat(){
+    int row, column;
+    try {
+        System.out.print("rows : ");
+        row = scanner.nextInt();
+        System.out.print("column : ");
+        column = scanner.nextInt();
+
+        changeSeat(row, column);
+
+    } catch (Exception e) {
+    }
+  }
+  void changeSeat(int row, int column){
+    flightSeat[row-1][column-1] = "X";
+    displaySeat();
+  }
 }
 
 public class datastuct {
 
     public static void main(String[] args) {
         Seats s = new Seats();
-        s.currentSeat();
-        s.displaySeat();
+
+        while (true) {
+            System.out.println("--------RESERVATION SYSTEM---------");
+            System.out.println("1.Reserve seat\n2.Show Seat\n3.Cancel Reservation");
+            System.out.print("Choice : ");
+            try (Scanner scanner = new Scanner(System.in)){
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choice) {
+                    case 1:
+                      s.displaySeat();
+                      s.reserveSeat();
+                        return;
+                    default:
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input try again!");
+            }
+
+        }
     }
 }
 
