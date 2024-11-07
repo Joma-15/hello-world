@@ -5,39 +5,40 @@
 //the table should be display everytime the user make a changes 
 //it should have class for managing the seats and the main class for the main page 
 import java.util.InputMismatchException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 class Seats{
     static String[][] flightSeat = new String[10][10]; //four row 10 column 
     Scanner scanner = new Scanner(System.in);
 
-    //the current value of the seat is 0
-    // void currentSeat(){
-    //     for (int i = 0; i < flightSeat.length; i++) {
-    //         for (int j = 0; j < flightSeat[i].length; j++) {
-    //             flightSeat[i][j] = "0"; 
-    //         }
-    //     }
-    // }
+//     the current value of the seat is 0
+//     void currentSeat(){
+//         for (int i = 0; i < flightSeat.length; i++) {
+//             for (int j = 0; j < flightSeat[i].length; j++) {
+//                 flightSeat[i][j] = "0"; 
+//             }
+//         }
+//     }
 
-    // // this is for displaying the current seat available 
-    // void displaySeat(){
-    //     System.out.println("Current Seat Available");
-    //     // traverse to each row 
-    //     for (int i = 0; i < flightSeat.length; i++) {
-    //         System.out.print("| " + "Seat" + (i+1) + " |");
-    //         if ((i+1)==9) {break;}//ginawa ko to kasi hindi ko mapantay yung 10
-    //     }
-    //     System.out.print("| " + "Seat" + 10 + "|");//napantay ko na binawasan ko ng space
+//     // this is for displaying the current seat available 
+//     void displaySeat(){
+//         System.out.println("Current Seat Available");
+//         // traverse to each row 
+//         for (int i = 0; i < flightSeat.length; i++) {
+//             System.out.print("| " + "Seat" + (i+1) + " |");
+//             if ((i+1)==9) {break;}//ginawa ko to kasi hindi ko mapantay yung 10
+//         }
+//         System.out.print("| " + "Seat" + 10 + "|");//napantay ko na binawasan ko ng space
 
-    //     //traversing to each column
-    //     for (int i = 0; i < flightSeat.length; i++) {
-    //         System.out.println();
-    //         for (int j = 0; j < flightSeat[i].length; j++) {
-    //             System.out.print("|   " + flightSeat[i][j] + "   |");
-    //         }    
-    //     }
-    // }
+//         //traversing to each column
+//         for (int i = 0; i < flightSeat.length; i++) {
+//             System.out.println();
+//             for (int j = 0; j < flightSeat[i].length; j++) {
+//                 System.out.print("|   " + flightSeat[i][j] + "   |");
+//             }    
+//         }
+//     }
 
 //     void displaySeat(){
 //         System.out.println("Current Seat available");
@@ -56,21 +57,21 @@ void displaySeat() {
 
     // Print seat header row with alignment
     for (int i = 0; i < flightSeat[0].length; i++) {
-        System.out.printf("| Seat%-3d |", i + 1);  // %-3d for better alignment
+        System.out.printf("| Seat%-1d |", i);  // %-3d for better alignment
     }
     System.out.println();  // Move to the next line after header
 
     // Traverse and print each row with formatted columns
     for (int i = 0; i < flightSeat.length; i++) {
         for (int j = 0; j < flightSeat[i].length; j++) {
-            if(flightSeat[i][j] == null) flightSeat[i][j] = "0";
+            if(flightSeat[i][j] == null) flightSeat[i][j] = "\u001B[31m" + "0" + "\u001B[0m";
             System.out.printf("|   %-3s   |", flightSeat[i][j]);  // %-3s aligns seat content
         }
         System.out.println();  // Move to the next row
     }
   }
 
-  //method for reserving the seat 
+//   method for reserving the seat
 //   void reserveSeat(){
 //    boolean isinRange = false;
 //    while(!isinRange){
@@ -111,11 +112,18 @@ void displaySeat() {
 
 
   boolean changeSeat(int row, int column){
+    //check if the seat and column is in the range of 10
         if(row <= 10 && column <= 10){
-            flightSeat[row-1][column -1] = "X";
+            flightSeat[row-1][column -1] = "\u001B[32m" + "X" + "\u001B[0m";
             displaySeat();
             return true;
         }else return false;
+    }
+  }
+
+  class DataBase{
+    public DataBase(){
+        HashMap<String, String> userData = new HashMap<>();
     }
   }
 
