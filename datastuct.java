@@ -6,6 +6,10 @@
 //it should have class for managing the seats and the main class for the main page 
 import java.util.InputMismatchException;
 import java.util.HashMap;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.util.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 class Seats{
@@ -57,7 +61,7 @@ void displaySeat() {
 
     // Print seat header row with alignment
     for (int i = 0; i < flightSeat[0].length; i++) {
-        System.out.printf("| Seat%-1d |", i);  // %-3d for better alignment
+        System.out.printf("| Seat%-2d |", i + 1);  // %-3d for better alignment
     }
     System.out.println();  // Move to the next line after header
 
@@ -65,11 +69,14 @@ void displaySeat() {
     for (int i = 0; i < flightSeat.length; i++) {
         for (int j = 0; j < flightSeat[i].length; j++) {
             if(flightSeat[i][j] == null) flightSeat[i][j] = "\u001B[31m" + "0" + "\u001B[0m";
-            System.out.printf("|   %-3s   |", flightSeat[i][j]);  // %-3s aligns seat content
+            System.out.printf("|   %-5s   |", flightSeat[i][j]);  // %-3s aligns seat content
         }
         System.out.println();  // Move to the next row
     }
   }
+
+
+
 
 //   method for reserving the seat
 //   void reserveSeat(){
@@ -131,20 +138,20 @@ void displaySeat() {
 public class datastuct {
 
     public static void main(String[] args) {
-        Seats s = new Seats();
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("--------RESERVATION SYSTEM---------");
             System.out.println("1.Reserve seat\n2.Show Seat\n3.Cancel Reservation");
             System.out.print("Choice : ");
-            try (Scanner scanner = new Scanner(System.in)){
+            try{
                 int choice = scanner.nextInt();
                 scanner.nextLine();
 
                 switch (choice) {
                     case 1:
+                    Seats s = new Seats();
                       s.reserveSeat();
-                        return;
                     default:
                         break;
                 }
