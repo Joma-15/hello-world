@@ -69,7 +69,7 @@ void displaySeat() {
     for (int i = 0; i < flightSeat.length; i++) {
         for (int j = 0; j < flightSeat[i].length; j++) {
             if(flightSeat[i][j] == null) flightSeat[i][j] = "\u001B[31m" + "0" + "\u001B[0m";
-            System.out.printf("|   %-5s   |", flightSeat[i][j]);  // %-3s aligns seat content
+            System.out.printf("|   %-1s    |", flightSeat[i][j]);  // %-3s aligns seat content
         }
         System.out.println();  // Move to the next row
     }
