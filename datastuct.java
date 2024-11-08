@@ -6,10 +6,6 @@
 //it should have class for managing the seats and the main class for the main page 
 import java.util.InputMismatchException;
 import java.util.HashMap;
-import java.io.BufferedWriter;
-import java.io.BufferedReader;
-import java.util.Date;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 class Seats{

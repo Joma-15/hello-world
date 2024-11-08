@@ -1,5 +1,7 @@
-let obj = {username: "jhon marcel adelantar", password: "uzumaki@15"};
+let obj = {username: "jhon marcel Adelantar", password: "uzumaki@15"}; 
 
-for(let [key,value] of Object.entries(obj)){
-    console.log(key,value);
+
+//loop through key value pairs 
+for(let [key, value] of Object.entries(obj)){
+    console.log(`Hello my ${key} is ${value}`)
 }
