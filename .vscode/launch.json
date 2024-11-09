@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StudentList",
+            "request": "launch",
+            "mainClass": "StudentList",
+            "projectName": "eclipse_1b42edae"
+        },
+        {
+            "type": "java",
+            "name": "Greeting",
+            "request": "launch",
+            "mainClass": "Greeting",
+            "projectName": "eclipse_1b42edae"
+        },
+        {
+            "type": "java",
+            "name": "activity",
+            "request": "launch",
+            "mainClass": "activity",
+            "projectName": "eclipse_1b42edae"
+        },
+        {
+            "type": "java",
+            "name": "Activity",
+            "request": "launch",
+            "mainClass": "Activity",
+            "projectName": "eclipse_1b42edae"
+        },
+        {
+            "type": "java",
             "name": "datastuct",
             "request": "launch",
             "mainClass": "datastuct",
