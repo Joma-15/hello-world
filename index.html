@@ -6,18 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="container">this is a fuckin h1</h1>
-    <button onclick="loadDoc()">click me</button>
-
+    <p id="demo"></p>
     <script>
-        function loadDoc(){
-            const xhttp = new XMLHttpRequest(); 
-            xhttp.onload = function(){
-                document.getElementById("container").innerHTML = this.responseText;
-            }
-            xhttp.open("GET","hello world.txt", true);
-            xhttp.send();
+        function parseJson(){
+            //creating a json object 
+            let jsonObject = '{"username": "marcel", "password": "uzumaki@15"}';
+            //parsing the json object into javascript object 
+            let jsJson = JSON.parse(jsonObject);
+            document.getElementById("demo").innerHTML = jsJson.password;
+            let stringJson = JSON.stringify(jsJson);
+            localStorage.setItem("item", jsJson);//it will throw an error since we pass the json as an object not as a string
         }
+
+        async function getData(){
+            //getting the url
+            fetch
+        }
+        parseJson();
     </script>
 </body>
 </html>
