@@ -1,4 +1,10 @@
 {
+<<<<<<< HEAD
     "name": "jhon marcel adelantar", 
     "password": "uzumaki@15"
+=======
+    "username": "jhon marcel adelantar",
+    "type": "node",
+    "datas": ["hello world", "hotdog"]
+>>>>>>> new
 }
