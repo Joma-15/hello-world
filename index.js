@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 //creating a sequence of number 
+=======
+//creating a sequence of numberr
+>>>>>>> 95f1ab4ee80ec4c4685e541e92b8de2374910734
 const primeNumbers = [1,2,3,4,5,6,7,8,9,10];
 //hoisting method
 //pass the even number the array of numbers and the arrow function that will filter all the even numbers 
@@ -26,6 +30,7 @@ function removeEven(primeNumbers, callback){
     return container;//returning the filtered array
 }
 console.log(evenNumber);
+<<<<<<< HEAD
 =======
 // Select elements
 const dragItem = document.getElementById("dragItem");
@@ -59,3 +64,5 @@ dropZone.addEventListener("drop", (e) => {
     dropZone.style.backgroundColor = "";
 });
 >>>>>>> new
+=======
+>>>>>>> 95f1ab4ee80ec4c4685e541e92b8de2374910734
