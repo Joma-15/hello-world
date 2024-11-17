@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //creating a sequence of number 
 =======
 //creating a sequence of numberr
@@ -66,3 +67,5 @@ dropZone.addEventListener("drop", (e) => {
 >>>>>>> new
 =======
 >>>>>>> 95f1ab4ee80ec4c4685e541e92b8de2374910734
+=======
+>>>>>>> new
