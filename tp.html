@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Scheduling Analysis with MathML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #0066cc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #0073e6;
+            color: #fff;
+        }
+        .gantt-chart {
+            font-weight: bold;
+            padding: 10px;
+            background-color: #e6f3ff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .answers {
+            padding: 15px;
+            background-color: #e6ffe6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Process Scheduling Analysis with MathML</h1>
+
+    <h2>Given Data:</h2>
+    <table>
+        <tr>
+            <th>Process</th>
+            <th>Arrival Time</th>
+            <th>Burst Time</th>
+        </tr>
+        <tr><td>E</td><td>0</td><td>4</td></tr>
+        <tr><td>F</td><td>2</td><td>9</td></tr>
+        <tr><td>G</td><td>3</td><td>3</td></tr>
+        <tr><td>H</td><td>5</td><td>7</td></tr>
+        <tr><td>I</td><td>11</td><td>5</td></tr>
+        <tr><td>J</td><td>17</td><td>6</td></tr>
+        <tr><td>K</td><td>24</td><td>12</td></tr>
+    </table>
+
+    <h2>1. First-Come First-Serve (FCFS)</h2>
+    <table>
+        <tr>
+            <th>Process</th>
+            <th>Arrival Time</th>
+            <th>Burst Time</th>
+            <th>Finish Time</th>
+            <th>Turnaround Time</th>
+            <th>Waiting Time</th>
+        </tr>
+        <tr><td>E</td><td>0</td><td>4</td><td>4</td><td>4</td><td>0</td></tr>
+        <tr><td>F</td><td>2</td><td>9</td><td>13</td><td>11</td><td>2</td></tr>
+        <tr><td>G</td><td>3</td><td>3</td><td>16</td><td>13</td><td>10</td></tr>
+        <tr><td>H</td><td>5</td><td>7</td><td>23</td><td>18</td><td>11</td></tr>
+        <tr><td>I</td><td>11</td><td>5</td><td>28</td><td>17</td><td>12</td></tr>
+        <tr><td>J</td><td>17</td><td>6</td><td>34</td><td>17</td><td>11</td></tr>
+        <tr><td>K</td><td>24</td><td>12</td><td>46</td><td>22</td><td>10</td></tr>
+    </table>
+
+    <div class="gantt-chart">
+        <strong>Gantt Chart (FCFS):</strong> | E | F         | G | H       | I    | J    | K           | <br>
+        <strong>Time:</strong> 0 4          13 16         23     28     34           46
+    </div>
+
+    <h2>2. Shortest Remaining Time First (SRTF)</h2>
+    <table>
+        <tr>
+            <th>Process</th>
+            <th>Arrival Time</th>
+            <th>Burst Time</th>
+            <th>Finish Time</th>
+            <th>Turnaround Time</th>
+            <th>Waiting Time</th>
+        </tr>
+        <tr><td>E</td><td>0</td><td>4</td><td>4</td><td>4</td><td>0</td></tr>
+        <tr><td>F</td><td>2</td><td>9</td><td>27</td><td>25</td><td>16</td></tr>
+        <tr><td>G</td><td>3</td><td>3</td><td>7</td><td>4</td><td>1</td></tr>
+        <tr><td>H</td><td>5</td><td>7</td><td>16</td><td>11</td><td>4</td></tr>
+        <tr><td>I</td><td>11</td><td>5</td><td>31</td><td>20</td><td>15</td></tr>
+        <tr><td>J</td><td>17</td><td>6</td><td>37</td><td>20</td><td>14</td></tr>
+        <tr><td>K</td><td>24</td><td>12</td><td>49</td><td>25</td><td>13</td></tr>
+    </table>
+
+    <div class="gantt-chart">
+        <strong>Gantt Chart (SRTF):</strong> | E | G | H         | F    | I    | J    | K           | <br>
+        <strong>Time:</strong> 0   4    7          16      27    31    37           49
+    </div>
+
+    <h2>3. Round Robin (Quantum = 3)</h2>
+    <table>
+        <tr>
+            <th>Process</th>
+            <th>Arrival Time</th>
+            <th>Burst Time</th>
+            <th>Finish Time</th>
+            <th>Turnaround Time</th>
+            <th>Waiting Time</th>
+        </tr>
+        <tr><td>E</td><td>0</td><td>4</td><td>6</td><td>6</td><td>2</td></tr>
+        <tr><td>F</td><td>2</td><td>9</td><td>29</td><td>27</td><td>18</td></tr>
+        <tr><td>G</td><td>3</td><td>3</td><td>12</td><td>9</td><td>6</td></tr>
+        <tr><td>H</td><td>5</td><td>7</td><td>24</td><td>19</td><td>12</td></tr>
+        <tr><td>I</td><td>11</td><td>5</td><td>34</td><td>23</td><td>18</td></tr>
+        <tr><td>J</td><td>17</td><td>6</td><td>36</td><td>19</td><td>13</td></tr>
+        <tr><td>K</td><td>24</td><td>12</td><td>48</td><td>24</td><td>12</td></tr>
+    </table>
+
+    <div class="gantt-chart">
+        <strong>Gantt Chart (Round Robin, Quantum = 3):</strong> | E | F | G | H | I | E | F | H | I | J | K |<br>
+        <strong>Time:</strong> 0   3   6  9   12 15   18  
+    </div>
+
+    <h2>4. Answer the Questions</h2>
+    <div class="answers">
+        <p><strong>a.</strong> Among the three process scheduling algorithms, <strong>Shortest Remaining Time First (SRTF)</strong> is the most efficient, as it minimizes both turnaround and waiting times by prioritizing the process with the shortest burst time.</p>
+        <p><strong>b.</strong> The main difference between First-Come First-Serve (FCFS) and Round Robin (RR) is that FCFS processes execute in the order they arrive, which can lead to long waiting times for processes that arrive later, while RR assigns each process a fixed time slice (quantum), allowing fairer and quicker execution for all processes.</p>
+        <p><strong>c.</strong> Increasing the quantum in Round Robin to 5 would likely reduce the number of context switches and make the scheduling more efficient for longer processes, but it may increase waiting times for shorter processes.</p>
+        <p><strong>d.</strong> The average turnaround time and waiting time vary per algorithm because each one has a different approach to scheduling. For instance, FCFS prioritizes the order of arrival, while RR distributes CPU time equally, and SRTF prioritizes the shortest remaining burst time.</p>
+        <p><strong>e.</strong> Round Robin is not ideal for a file management system because it can result in inefficient disk I/O handling, and other algorithms like Shortest Job Next (SJN) or Priority Scheduling would likely provide better performance in such environments.</p>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ the scheduler switches to the new process.</p>
+
+
+
+
+
+
+
+
+
+
+
+ it’s not yet completed, and the next process gets its turn.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ helps reduce the total wait time for each process, especially for shorter ones.</p>
+
+
+
+ever, breaks up execution into equal time slices, reducing delays for shorter processes and avoiding long waits seen in FCFS. Round Robin, though, does introduce overhead from frequent switching.</p>
+
+
+
+g the overhead from frequent interruptions. However, short processes may still experience delays.</p>
+
+
+
+es wait times for shorter processes, and Round Robin shares CPU time fairly, impacting total turnaround based on quantum size and context switching.</p>
+
+
+
+equent switching could disrupt data access, slowing down processes that would perform better with uninterrupted access.</p>
+
+
+

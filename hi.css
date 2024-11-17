@@ -1,0 +1,104 @@
+   /* Reset margin and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Full height for flex positioning */
+    display: flex;
+    flex-direction: column;
+    background-image: url("food\ recipe\ bg.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+img {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    margin: 0;
+    position: absolute;
+    left: 10px;
+}
+/* Nav styling */
+nav {
+    background-color: rgb(15, 15, 149);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100px;
+}
+nav h1 {
+    color: white;
+    margin-left: 20px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    transition: border-color 0.3 ease;
+    border-bottom: 1px solid transparent;
+    padding: 0px;
+}
+nav h1:hover{
+    color: yellow;
+    box-sizing: border-box;
+    border-bottom: 1px solid yellow;
+    padding: 0px;
+}
+/* Main content section styling */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1; /* Takes available space */
+    padding: 30px;
+    box-sizing: border-box;
+    padding-top: 250px;
+}
+section h1 {
+    margin-top: 20px;
+}
+/* Input field styling at the bottom */
+.finder {
+    margin-bottom: 20px; /* Space from the bottom */
+    padding: 10px;
+    width: 110%;
+    max-width: 400px;
+    background-image: url('search\ logo.jpg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 47vh;
+    transition: border-color 0.3 ease;
+    border: 2px solid transparent;
+    background-color: rgb(213, 204, 204);
+    color: blue;
+    border-radius: 25px;
+    position: relative;
+    bottom: 5px;
+}
+.finder:hover{
+    border: 2px solid blue;
+    outline: none;
+}
+span{
+    display: flex;
+    margin-right: 30px;
+}
+::placeholder{
+    color: blue;
+}
+.search_container{
+    width: 410px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    position: relative;
+}
+.finder:focus{
+    border: 2px solid blue;
+    outline: none;
+}
+
+
+
+

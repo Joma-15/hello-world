@@ -4,79 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Finder</title>
-    <style>
-        /* Reset margin and padding */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%; /* Full height for flex positioning */
-            display: flex;
-            flex-direction: column;
-            background-image: url("food\ recipe\ bg.avif");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        img {
-            width: 80px;
-            height: 80px;
-            display: flex;
-            margin: 0;
-            position: absolute;
-            left: 10px;
-        }
-        /* Nav styling */
-        nav {
-            background-color: rgb(15, 15, 149);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
-        nav h1 {
-            color: white;
-            margin-left: 20px;
-        }
-        /* Main content section styling */
-        section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1; /* Takes available space */
-            padding: 30px;
-            box-sizing: border-box;
-            padding-top: 250px;
-        }
-        section h1 {
-            margin-top: 20px;
-        }
-        /* Input field styling at the bottom */
-        .finder {
-            margin-bottom: 20px; /* Space from the bottom */
-            padding: 10px;
-            width: 80%;
-            max-width: 400px;
-            background-image: url('search\ logo.jpg');
-            background-size: 20px;
-            background-repeat: no-repeat;
-            background-position: 47vh;
-            transition: border-color 0.3 ease;
-        }
-        .finder:hover{
-            border: 2px solid blue;
-        }
-    </style>
+    <link rel="stylesheet" href="hi.css">
 </head>
 <body>
     <header>
         <nav>
             <img src="food recipe.png" alt="food logo">
-            <h1>FOOD RECIPE FINDER</h1>
+            <span>
+            <h1>Home</h1>
+            <h1>About</h1>
+            <h1>Developer</h1>
+            </span>
         </nav>
     </header>
     <section>
         <h1>Find the recipe of your favorite food here</h1>
-        <input type="text" class="finder" placeholder="Search for a recipe...">
+        <div class="search_container">
+        <input type="text" class="finder" placeholder="Search for a recipe..." id="find">
+        </div>
     </section>
+    <script src="index.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
-myFunction = async () => "hello world";
+import PromptSync from "prompt-sync";
 
-myFunction().then(
-    (result) => console.log(result),
-    (error) => console.log(error)
-);
+//instantiating the object 
+const prompt = PromptSync(); 
+prompt("hello what is your name : ")
